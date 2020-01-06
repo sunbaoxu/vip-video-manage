@@ -1,0 +1,127 @@
+/* CSS reset */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+a{
+	color: #333;
+}
+body{
+	font-family:"PingFang SC",PingFang-SC,"Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 14px;
+	color:$col-3;
+	background: $col-f;
+}
+*{   
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color:transparent;
+}
+*,*:after,*:before{
+	box-sizing:border-box;
+	margin: 0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0;
+}
+address,caption,cite,code,dfn,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:14px;
+	font-weight:normal;
+}
+abbr,acronym { border:0;
+}
+a{
+	text-decoration:none;
+}
+
+/* 解决兼容而加的样式 */
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/}
+a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+
+button,input,optgroup,select,textarea {
+	outline:none;
+	background: transparent;
+	border:0;
+    /*-webkit-appearance:none; /*去掉webkit默认的表单样式*/}
+
+a,button,input,optgroup,select,textarea {
+	-webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+
+
+
+
+input:-ms-input-placeholder{color:$col-9}
+input::-webkit-input-placeholder{color:$col-9}
+input:-moz-placeholder{color:$col-9}
+input.blue::-moz-placeholder{color:$col-blue}
+input.blue:-ms-input-placeholder{color:$col-blue}
+input.blue::-webkit-input-placeholder{color:$col-blue}
+input.blue:-moz-placeholder{color:$col-blue}
+input.blue::-moz-placeholder{color:$col-blue}
+textarea:-ms-input-placeholder{color:$col-9}
+textarea::-webkit-input-placeholder{color:$col-9}
+textarea:-moz-placeholder{color:$col-9}
+textarea::-moz-placeholder{color:$col-9}
+
+
+.g-border{position: relative;}
+.g-border1{position: relative;}
+.g-border:after{content:'';position: absolute;bottom:0;width:100%;height:1px;background: $col-e5;overflow: hidden;left:0;transform:translate(0%,0) scale(1,0.5);}
+.g-border1::before{content:'';position: absolute;top:0;width:100%;height:1px;background: $col-e5;overflow: hidden;left:0;transform:translate(0%,0) scale(1,0.5);}
+
+.g-border-on::before,.g-border-on:after{
+  background: $col-dc!important;
+}
+
+
+
+.g-text-ove2{display: -webkit-box;-webkit-box-orient: vertical; -webkit-line-clamp: 2;overflow: hidden;word-break: break-all;}
+.g-text-ove1{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.g-back{background-position: center center;background-repeat: no-repeat;background-size:100%;}
+.g-back-cover{@extend .g-back;background-size:cover;}
+
+.g-dis{display: flex;}
+.g-col{@extend .g-dis;flex-direction: column;}//纵向
+.g-col-cen-x{@extend .g-col;align-items: center;}//纵向居中
+
+.g-col-fen{@extend .g-col;justify-content: space-between;}//纵向均分
+.g-col-fen-box{@extend .g-col-fen;box-sizing: border-box;}//纵向均分挤压
+.g-col-fen-cen-box{@extend .g-col-fen-box;align-items: center;}//纵向均分挤压
+
+.g-col-cen-y{@extend .g-col;justify-content: center;}//纵向居中
+.g-col-cen-box{@extend .g-col-cen-y;box-sizing: border-box;}//纵向居中挤压
+.g-col-cen-cen-box{@extend .g-col-cen-box;align-items: center;}//纵向居中挤压
+
+.g-x-s{display: flex;justify-content: flex-start;}//横向
+.g-cen-y{display: flex;align-items: center;}
+.g-cen-box-wid{@extend .g-cen-y; box-sizing:border-box;width:100%;}//横向 居中挤压
+.g-cen-x{display: flex;justify-content: center;}//横向居中
+.g-cen-box{@extend .g-cen-x;box-sizing: border-box;}//横向居中挤压
+.g-cen-cen{@extend .g-cen-x;align-items: center;}//横向居中
+.g-cen-cen-box{@extend .g-cen-cen;box-sizing: border-box;}//横向居中
+.g-cen-cen-wid{@extend .g-cen-cen;width:100%;}//横向居中,width 100%
+.g-cen-end{@extend .g-cen-x;align-items: flex-end}
+
+.g-fen-x{display: flex;justify-content: space-between;}//横向均分
+.g-fen-box{@extend .g-fen-x;box-sizing: border-box;}//横向均分挤压
+.g-fen-cen{@extend .g-fen-x;align-items: center;}//横向垂直均分
+.g-fen-cen-box{@extend .g-fen-cen;box-sizing: border-box;}//横向垂直均分挤压
+
+.g-end-cen{display: flex;justify-content: flex-end;align-items: center;}
+.g-box-duo{display: flex;flex-wrap: wrap;}//flex 换行
