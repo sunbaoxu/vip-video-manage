@@ -129,6 +129,9 @@ export default class Home extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.home-wrap{
+  min-width: 1200px;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
 }

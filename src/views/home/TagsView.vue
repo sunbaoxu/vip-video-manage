@@ -4,6 +4,7 @@
       <router-link 
         ref='tag' 
         class="tags-view-item" 
+        :class="isActive(tag)?'active':''"
         v-for="(tag,i) in visitedViews"
         :to="tag.path" 
         :key="i" 
@@ -31,7 +32,7 @@ export default class TagsViews extends Vue {
 
   @Getter('visitedViews')  visitedViews:any;
   @Action('addVisitedViews') private addVisitedViews: any;
-  // @Action('delVisitedViews') private delVisitedViews: any;
+  @Action('delVisitedViews') private delVisitedViews: any;
 
   @Watch('$route') private handleRouteChange(to:any):void{
     this.addVisitedViews(this.$route);
@@ -42,22 +43,28 @@ export default class TagsViews extends Vue {
   }
 
 
-  delVisitedViews (){
-
-  }
-
   //关闭当前view
   closeSelectedTag(view:any) {
-    // this.delVisitedViews(view).then((views:any) => {
-      // if (this.isActive(view)) {
-      //   const latestView = views[0];
-      //   if (latestView) {
-      //     this.$router.push(latestView.path);
-      //   } else {
-      //     this.$router.push('/')
-      //   }
-      // }
-    // })
+    this.delVisitedViews(view).then((views:any) => {
+      if (this.isActive(view)) {
+        const latestView = views[0];
+        if (latestView) {
+          this.$router.push(latestView.path);
+        } else {
+          this.$router.push('/')
+        }
+      }
+    })
+  }
+
+  //是否选中当前页
+  isActive(route:any) {
+    if((route.name  == 'CheckDetail' || route.name  == 'UrgeDetail' )&& route.name === this.$route.name){
+      return route.path.query.orderId === this.$route.query.orderId
+    }else{
+      return route.path.path === this.$route.path || route.name === this.$route.name
+    }
+    
   }
 
 

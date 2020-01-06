@@ -43,6 +43,27 @@ const mutations:MutationTree<any> =  {
       state.visitedViews.unshift(obj);
     }
     sessionStorage.setItem('lb-jyfq-manage-visited-views',JSON.stringify(state.visitedViews));
+  },
+  //删除某个view
+  'DEL_VISITEDVIEWS'(state:any,view:any):void {
+    state.visitedViews.map((m:any,i:any)=>{
+      let async = false;
+      
+      
+      if(m.path.path =='/loan/checkDetail' || m.path.path =='/loan/urgeDetail'){
+        if(m.path.path == view.path.path && m.path.query.orderId == view.path.query.orderId){
+          async = true;
+        }
+      } else if(m.path.path == view.path.path){
+        async = true;
+      }
+  
+      if(async){
+        state.visitedViews.splice(i,1);
+        sessionStorage.setItem('lb-jyfq-manage-visited-views',JSON.stringify(state.visitedViews));
+        return ;
+      }
+    });
   }
 }
 
