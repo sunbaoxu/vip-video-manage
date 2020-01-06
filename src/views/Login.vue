@@ -3,9 +3,9 @@
     <section class="login-main">
       <section class="login-form g-col-cen-cen-box">
         <h6 class="title">登录VIP项目管理后台</h6>
-        <el-input class="input" v-model="iphone" placeholder="请输入您的手机号" />
-        <el-input class="input" v-model="pwd" placeholder="请输入您的密码" />
-        <el-button class="btn" type="primary">登录</el-button>
+        <el-input class="input" v-model="phone" placeholder="请输入您的手机号" maxlength="11" />
+        <el-input type="password" class="input" v-model="pwd" placeholder="请输入您的密码" maxlength="10" />
+        <el-button class="btn" type="primary" :disabled="!pwd || !phone" @click="loginFn">登录</el-button>
       </section>
     </section>
   </section>
@@ -14,6 +14,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import headerBox from '$common/header.vue';
 import {mapGetters} from 'vuex';
+import api from '@/api';
 
 @Component({
   components :{
@@ -25,27 +26,20 @@ import {mapGetters} from 'vuex';
 })
 
 export default class HeaderBox extends Vue {
-  win :any = window;
-  async :boolean = false;
-  input :string = '';
+  // win :any = window;
+  phone :string = '';
+  pwd :string = '';
 
-  userAgentType ():boolean {
-    return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+  //登录
+  loginFn ():any{
+    sessionStorage.setItem('yy-vip-name',this.phone)
+    this.$router.push('/')
   }
 
   mounted (){
-    this.async = this.userAgentType();
-    
-    this.win.onresize = ()=>{
-      this.async = this.userAgentType();
-    }
-
-    // console.log(process.env)
+  
   }
 
-  destroyed () {
-    this.win.onresize = undefined;
-  }
 }
 </script>
 <style lang="scss" scoped>
@@ -57,7 +51,8 @@ export default class HeaderBox extends Vue {
   position: relative;
   min-width: 1200px;
   .login-main{
-    width: 50%;
+    width: 40%;
+    min-width: 600px;
     height: 100%;
     position: absolute;
     top: 0;
@@ -65,7 +60,8 @@ export default class HeaderBox extends Vue {
     background: rgba(0,0,0,0.2);
     .login-form{
       height: 100%;
-      padding:0 200px 100px 100px;
+      width: 460px;
+      padding:0 0 100px 100px;
       .title{
         font-size: 30px;
         color: $col-f;

@@ -6,6 +6,9 @@ const getters: GetterTree<any,any> = {
   },
   'baseUrl' (state:any):any {
     return state.baseUrl
+  },
+  'isCollapse' (state:any):any {
+    return state.isCollapse
   }
 }
 

@@ -8,6 +8,7 @@ const Error404 = () => import('@/views/Error404.vue');
 
 
 const Login = () => import('@/views/Login.vue');
+const Home = () => import('@/views/Home.vue');
 
 Vue.use(Router)
 
@@ -16,6 +17,7 @@ let router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {path: '/',name: 'Home',component: Home},
     {path: '/login',name: 'Login',component: Login},
 
 
