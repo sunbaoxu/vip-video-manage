@@ -3,10 +3,10 @@
     <header class="home-head-box" id="navs">
       <div class="nav-lef g-cen-y">
         <!-- <img :src="urlPath+'logo.png'"> -->
-        <h4>北京沐屿科技发展有限公司 — 运营管理系统</h4>
+        <h4>VIP项目管理后台</h4>
       </div>
       <div class="nav-right">
-        <span>欢迎您{{username ?'，'+username:''}}!</span>
+        <span>欢迎您{{username ?'，'+username:''}} !</span>
         <span @click="loginOut" class="login-out">退出</span>
       </div>
     </header>
@@ -43,7 +43,7 @@
         </el-menu>
       </div>
       <div class="home-right-box">
-        <!-- <tags-view></tags-view> -->
+        <tags-view></tags-view>
         <section class="app-main" id="app-main">
           <keep-alive>
             <router-view v-if="$route.meta.async"/>
@@ -56,12 +56,14 @@
 </template>
 <script lang="ts">
 import api from '@/api';
-// import TagsView from "./TagsView";
+import TagsView from "@/views/home/TagsView";
+
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import {State,Action,Getter} from 'vuex-class';
 
 @Component({
   components :{
+    TagsView
   }
 })
 

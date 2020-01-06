@@ -9,6 +9,9 @@ const getters: GetterTree<any,any> = {
   },
   'isCollapse' (state:any):any {
     return state.isCollapse
+  },
+  'visitedViews' (state:any):any {
+    return state.visitedViews
   }
 }
 

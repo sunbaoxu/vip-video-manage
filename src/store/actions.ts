@@ -10,6 +10,10 @@ const actions: ActionTree<any,any> =  {
   },
   async setIsCollapse({state,commit},isCollapse:any){
     commit('SET_ISCOLLAPSE', isCollapse);
+  },
+  async addVisitedViews({state,commit},visitedViews:any){
+    console.log(visitedViews,'aaaaaaa')
+    commit('ADD_VISITEDVIEWS', visitedViews);
   }
 };
 

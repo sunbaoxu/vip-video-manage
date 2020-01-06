@@ -34,6 +34,7 @@ module.exports = {
     config.resolve.alias
     .set('$common',resolve('src/commons'))
     .set('$api',resolve('src/api'))
+    .set('@',resolve('src'))
 
   },
 

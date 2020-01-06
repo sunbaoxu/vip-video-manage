@@ -5,7 +5,8 @@ const Error404 = () => import('@/views/Error404.vue');
 
 
 const Login = () => import('@/views/Login.vue');
-const Home = () => import('@/views/Home.vue');
+const Home = () => import('@/views/home/Home.vue');
+const Index = () => import('@/views/home/Index.vue');
 
 
 
@@ -33,17 +34,19 @@ let router = new Router({
       path: '/',
       component: Home,
       children: [
-        {path: '/user/userList',name: 'UserList',component: UserList,meta:{title:'用户信息',async:true}},
-        {path: '/user/invitation',name: 'Invitation',component: Invitation,meta:{title:'用户信息',async:true}},
+        {path: '/',name: 'Index',component: Index,meta:{title:'首页'}},
+
+        {path: '/user/userList',name: 'UserList',component: UserList,meta:{title:'用户列表',async:true}},
+        {path: '/user/invitation',name: 'Invitation',component: Invitation,meta:{title:'邀请好友查询',async:true}},
 
 
-        {path: '/order/orderList',name: 'OrderList',component: OrderList,meta:{title:'用户信息',async:true}},
+        {path: '/order/orderList',name: 'OrderList',component: OrderList,meta:{title:'订单列表',async:true}},
 
 
-        {path: '/money/reflectList',name: 'ReflectList',component: ReflectList,meta:{title:'用户信息',async:true}},
+        {path: '/money/reflectList',name: 'ReflectList',component: ReflectList,meta:{title:'体现列表',async:true}},
 
 
-        {path: '/power/identityList',name: 'IdentityList',component: IdentityList,meta:{title:'用户信息',async:true}},
+        {path: '/power/identityList',name: 'IdentityList',component: IdentityList,meta:{title:'账号管理',async:true}},
 
       ]
     },
