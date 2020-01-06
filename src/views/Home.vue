@@ -69,21 +69,21 @@ export default class Home extends Vue {
   username :string = '';
   defaultActive :string = '/';
   menuArr :any[] =[
-    {"id":"148","pid":"147","text":"用户中心","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
-      {"id":"152","pid":"148","text":"用户列表","url":"/user/userList","iconClass":null,"sort":"1","children":null},
-      {"id":"152","pid":"148","text":"邀请好友查询","url":"/user/userList","iconClass":null,"sort":"1","children":null}
+    {"id":"0-1","pid":"0","text":"用户中心","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
+      {"id":"0-1-1","pid":"0-1","text":"用户列表","url":"/user/userList","iconClass":null,"sort":"1","children":null},
+      {"id":"0-1-2","pid":"0-1","text":"邀请好友查询","url":"/user/invitation","iconClass":null,"sort":"1","children":null}
       ]
     },
-    {"id":"148","pid":"147","text":"订单中心","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
-      {"id":"152","pid":"148","text":"订单列表","url":"/user/userList","iconClass":null,"sort":"1","children":null}
+    {"id":"0-2","pid":"0","text":"订单中心","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
+      {"id":"0-2-1","pid":"0-2","text":"订单列表","url":"/order/orderList","iconClass":null,"sort":"1","children":null}
       ]
     },
-    {"id":"148","pid":"147","text":"资金管理","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
-      {"id":"152","pid":"148","text":"提现列表","url":"/user/userList","iconClass":null,"sort":"1","children":null}
+    {"id":"0-3","pid":"0","text":"资金管理","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
+      {"id":"0-3-1","pid":"0-3","text":"提现列表","url":"/money/reflectList","iconClass":null,"sort":"1","children":null}
       ]
     },
-    {"id":"148","pid":"147","text":"配置管理","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
-      {"id":"152","pid":"148","text":"账号管理","url":"/user/userList","iconClass":null,"sort":"1","children":null}
+    {"id":"0-4","pid":"0","text":"配置管理","url":null,"iconClass":"icon-yonghu","sort":"1","children":[
+      {"id":"0-4-1","pid":"0-4","text":"账号管理","url":"/power/identityList","iconClass":null,"sort":"1","children":null}
       ]
     }
   ];
@@ -112,8 +112,16 @@ export default class Home extends Vue {
     this.setIsCollapse(!this.isCollapse);
   }
 
+  //菜单默认选中
+  activeFn () {
+    let path = this.$route.path;
+    this.defaultActive = path ;
+  }
+
   mounted (){
     this.username = sessionStorage.getItem('yy-vip-name') || '';
+
+    this.activeFn();
   }
 
 }
