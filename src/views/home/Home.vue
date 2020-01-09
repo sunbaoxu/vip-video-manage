@@ -56,7 +56,7 @@
 </template>
 <script lang="ts">
 import api from '@/api';
-import TagsView from "@/views/home/TagsView";
+import TagsView from "$view/home/TagsView.vue";
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import {State,Action,Getter} from 'vuex-class';
@@ -97,7 +97,7 @@ export default class Home extends Vue {
 
   
   //登录
-  loginOut ():any{
+  loginOut (){
     this.$confirm("确定退出登录？", "提示", {
       confirmButtonText: "确定",
       cancelButtonText: "取消",

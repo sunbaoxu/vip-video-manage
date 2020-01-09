@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import ScrollPane from "@/views/home/ScrollPane";
+import ScrollPane from "$view/home/ScrollPane.vue";
 import { Component, Prop, Vue ,Watch} from 'vue-property-decorator';
 import {State,Action,Getter} from 'vuex-class';
 

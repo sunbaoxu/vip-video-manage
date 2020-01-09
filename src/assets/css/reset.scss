@@ -125,3 +125,30 @@ textarea::-moz-placeholder{color:$col-9}
 
 .g-end-cen{display: flex;justify-content: flex-end;align-items: center;}
 .g-box-duo{display: flex;flex-wrap: wrap;}//flex 换行
+
+
+.el-table td{
+  // padding: 12px 0 ;
+  text-align: center;
+}
+.el-table th,th{
+  text-align: center;
+  padding:10px 0;
+  color: #333;
+  background: #f7f7f7;
+  font-size: 15px;
+}
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell,.el-table .cell, .el-table th div{
+  padding:0 5px ;
+}
+.el-menu-item-group__title {
+  padding:0;
+}
+.lb-table-text{
+  color: $col-blue1;
+  cursor: pointer;
+}
+.lb-pagination-box{
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
